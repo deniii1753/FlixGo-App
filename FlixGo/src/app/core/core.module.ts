@@ -19,6 +19,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'about-us',
+    component: AboutUsComponent
+  },
+  {
     path: '**',
     redirectTo: '404'
   }
