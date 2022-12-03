@@ -23,6 +23,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/bootstrap-grid.min.css",
+              "src/bootstrap-reboot.min.css",
+              "src/owl.carousel.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,6 +93,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/bootstrap-grid.min.css",
+              "src/bootstrap-reboot.min.css",
+              "src/owl.carousel.min.css",
               "src/styles.css"
             ],
             "scripts": []
