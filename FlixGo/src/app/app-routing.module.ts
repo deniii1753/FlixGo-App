@@ -5,23 +5,27 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LogoutComponent } from './core/logout/logout.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { CanActivateTeam } from './core/routeGuards.js/routeGuards';
 
 const routes: Routes = [
   {
     path: '404',
-    component: PageNotFoundComponent
+    component: PageNotFoundComponent,
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [CanActivateTeam]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [CanActivateTeam]
   },
   {
     path: 'logout',
-    component: LogoutComponent
+    component: LogoutComponent,
+    canActivate: [CanActivateTeam]
   }
 ];
 
