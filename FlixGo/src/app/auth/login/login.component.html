@@ -3,20 +3,35 @@
         <div class="row">
             <div class="col-12">
                 <div class="sign__content">
-                    <form class="sign__form">
+                    <form class="sign__form" [formGroup]="form" (ngSubmit)="submitHandler(form)">
                         <a class="sign__logo" routerLink="/home">
                             <img src="../../../assets/logo.svg" alt="LOGO">
                         </a>
 
                         <div class="sign__group">
-                            <input type="text" class="sign__input" placeholder="Email">
+                            <input type="text" class="sign__input" placeholder="Username" formControlName="username">
+                            <p class="error-message"
+                                *ngIf="form.get('username')?.touched && form.get('username')?.invalid">
+                                <mat-icon>error</mat-icon>
+                                Username is required!
+                            </p>
                         </div>
 
                         <div class="sign__group">
-                            <input type="password" class="sign__input password" placeholder="Password">
+                            <input type="password" class="sign__input password" placeholder="Password"
+                                formControlName="password">
+                            <p class="error-message"
+                                *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+                                <mat-icon>error</mat-icon>
+                                Password is required!
+                            </p>
                         </div>
-                        
-                        <button class="sign__btn" type="button">Sign in</button>
+
+                        <p class="error-message" *ngIf="fetchErrorMessage">
+                            <mat-icon>error</mat-icon>
+                            {{fetchErrorMessage}}
+                        </p>
+                        <button class="sign__btn">Sign in</button>
 
                         <span class="sign__text">Don't have an account? <a routerLink="/register">Sign up!</a></span>
 

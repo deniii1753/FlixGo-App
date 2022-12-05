@@ -8,13 +8,8 @@ exports.register = async (user) => {
 
     const newUser = new User({
         username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
         email: user.email,
         password: hashedPassword,
-        imgUrl: user.imgUrl || defaultProfilePicture,
-        bio: user.bio,
-        role: 'user',
         _creationDate: new Date().getTime()
     });
 
