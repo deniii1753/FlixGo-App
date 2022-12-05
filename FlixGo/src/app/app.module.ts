@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +12,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { MoviesComponent } from './movies/movies.component';
 import { SharedModule } from './shared/shared.module';
+import { AppInterceptorProvider } from 'src/app.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +27,14 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    HttpClientModule 
   ],
-  providers: [],
+  providers: [
+    AppInterceptorProvider
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

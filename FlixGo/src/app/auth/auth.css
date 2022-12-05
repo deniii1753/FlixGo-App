@@ -41,6 +41,14 @@
     box-shadow: 0 0 20px 0 rgba(255, 88, 96, 0.5);
 }
 
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: #fd5050;
+    margin: 0px;
+}
+
 .sign__logo {
     margin-bottom: 40px;
 }

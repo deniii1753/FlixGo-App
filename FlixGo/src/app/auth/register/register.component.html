@@ -3,28 +3,50 @@
         <div class="row">
             <div class="col-12">
                 <div class="sign__content">
-                    <form action="#" class="sign__form">
+                    <form [formGroup]="form" class="sign__form" (ngSubmit)="submitHandler(form)">
                         <a class="sign__logo" routerLink="/home">
                             <img src="../../../assets/logo.svg" alt="">
                         </a>
 
                         <div class="sign__group">
-                            <input type="text" class="sign__input" placeholder="Username">
+                            <input type="text" class="sign__input" placeholder="Username" formControlName="username">
+                            <p class="error-message" *ngIf="form.get('username')?.touched && form.get('username')?.invalid">
+                                <mat-icon>error</mat-icon>
+                                <ng-container *ngIf="form.hasError('required','username')">Username is required!</ng-container>
+                                <ng-container *ngIf="form.hasError('minlength','username')">Username should be minimum 5 characters!</ng-container>
+                                <ng-container *ngIf="form.hasError('maxlength','username')">Username should be maximum 15 characters!</ng-container>
+                            </p>
                         </div>
 
                         <div class="sign__group">
-                            <input type="text" class="sign__input" placeholder="Email">
+                            <input type="text" class="sign__input" placeholder="Email" formControlName="email">
+                            <p class="error-message" *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+                                <mat-icon>error</mat-icon>
+                                <ng-container *ngIf="form.hasError('required','email')">Email is required!</ng-container>
+                                <ng-container *ngIf="form.hasError('pattern','email')">Please enter a valid email!</ng-container>
+                            </p>
                         </div>
 
-                        <div class="sign__group">
-                            <input type="password" class="sign__input" placeholder="Password">
-                        </div>
-
-                        <div class="sign__group">
-                            <input type="password" class="sign__input" placeholder="Repeat Password">
-                        </div>
-
-                        <button class="sign__btn" type="button">Sign up</button>
+                        <ng-container formGroupName="passwords">
+                            <div class="sign__group">
+                                <input type="password" class="sign__input" placeholder="Password" formControlName="password">
+                                <p class="error-message" *ngIf="form.get('passwords')?.get('password')?.touched && form.get('passwords')?.get('password')?.invalid">
+                                    <mat-icon>error</mat-icon>
+                                    <ng-container *ngIf="form.get('passwords')?.get('password')?.hasError('required')">Password is required!</ng-container>
+                                    <ng-container *ngIf="form.get('passwords')?.get('password')?.hasError('minlength')">Password should be minimum 5 characters!</ng-container>
+                                </p>
+                            </div>
+    
+                            <div class="sign__group">
+                                <input type="password" class="sign__input" placeholder="Repeat Password" formControlName="rePassword">
+                                <p class="error-message" *ngIf="form.get('passwords')?.get('rePassword')?.touched && form.get('passwords')?.invalid">
+                                    <mat-icon>error</mat-icon>
+                                    <ng-container *ngIf="form.get('passwords')?.hasError('passwordMatch')">Passwords doesn't match!</ng-container>
+                                </p>
+                            </div>
+                        </ng-container>
+                        <p class="error-message" *ngIf="fetchErrorMessage">{{fetchErrorMessage}}</p>
+                        <button class="sign__btn" [disabled]="form.invalid">Sign up</button>
 
                         <span class="sign__text">Already have an account? <a routerLink="/login">Sign in!</a></span>
                     </form>

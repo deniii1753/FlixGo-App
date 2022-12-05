@@ -3,18 +3,16 @@ const jwt = require('jsonwebtoken');
 
 const authService = require('../services/authService');
 
-const { passwordValidator, checkUsernameAvailability } = require('../utils/validations');
+const { checkUsernameAvailability } = require('../utils/validations');
 
 const SECRET = process.env.SECRET;
 
 router.post('/register', async (req, res, next) => {
     try {
         await checkUsernameAvailability(req.body.username);
-        passwordValidator(req.body.password, req.body.rePassword);
 
         const user = await authService.register(req.body);
         const token = await generateAuthToken(user._id);
-
         res.status(201).json({ 
             _id: user._id, 
             username: user.username, 
