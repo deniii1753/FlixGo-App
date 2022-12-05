@@ -392,6 +392,11 @@
     margin-right: 54px;
   }
 
+  .header__auth.logged {
+    display: flex;
+    gap: 30px;
+  }
+
   .header__search-btn {
     font-size: 30px;
   }

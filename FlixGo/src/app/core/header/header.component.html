@@ -4,13 +4,9 @@
       <div class="row">
         <div class="col-12">
           <div class="header__content">
-            <!-- header logo -->
             <a class="header__logo" routerLink="/home">
               <img src="../assets/logo.svg" alt="LOGO">
             </a>
-            <!-- end header logo -->
-
-            <!-- header nav -->
             <ul class="header__nav">
               <li class="header__nav-item">
                 <a class="header__nav-link" role="button" routerLink="home">Home</a>
@@ -26,8 +22,13 @@
               </li>
             </ul>
 
-            <div class="header__auth">
+            <div class="header__auth" *ngIf="!authService.isLoggedIn">
               <a class="header__sign-in" routerLink="login">SIGN IN</a>
+            </div>
+
+            <div class="header__auth logged" *ngIf="authService.isLoggedIn">
+              <a routerLink="profile" class="header__nav-link">Profile</a>
+              <a routerLink="logout" class="header__nav-link">Logout</a>
             </div>
 
           </div>
