@@ -72,24 +72,14 @@
     </div>
 </div>
 
-<section class="section section--bg">
+<section class="section section--bg" >
     <div class="container">
         <div class="row">
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>
-            <app-movies-card-item></app-movies-card-item>            
+            <app-movies-card-item *ngFor="let movie of movies?.movies" [movie]="movie"></app-movies-card-item>
 
-            <!-- <div class="col-12">
-                <a href="#" class="section__btn">Show more</a>
-            </div> -->
+            <div class="col-12" *ngIf="movies?.count !== movies?.movies?.length">
+                <button class="section__btn" (click)="moreClickHandler()">Show more</button>
+            </div>
         </div>
     </div>
 </section>

@@ -12,8 +12,9 @@ exports.getMovies = (search, sort, limit, skip) => {
     return Movie.find(searchObject)
         .skip(skip)
         .sort({ ...sort, _id: 1 })
-        .select('title likes dislikes imgUrl _creationDate description author authorImg postCreator _ratingStars')
-        .limit(limit);
+        .select('title imgUrl _creationDate description postCreator genres')
+        .limit(limit)
+        .populate('genres');
 }
 
 exports.getCount = (search) => {

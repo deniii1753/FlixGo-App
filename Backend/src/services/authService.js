@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const SALT_ROUNDS = Number(process.env.SALT_ROUNDS);
-const defaultProfilePicture = 'https://campussafetyconference.com/wp-content/uploads/2020/08/iStock-476085198.jpg';
 
 exports.register = async (user) => {
     const hashedPassword = await bcrypt.hash(user.password, SALT_ROUNDS);

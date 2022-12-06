@@ -7,9 +7,10 @@
             </a>
         </div>
         <div class="card__content">
-            <h3 class="card__title"><a href="#">I Dream in Another Language</a></h3>
-            <span class="card__category">Action, Thriler</span>
-            <span class="card__rate"><i class="icon ion-ios-star"></i>8.4</span>
+            <h3 class="card__title"><a href="#">{{movie.title}}</a></h3>
+            <span class="card__category">
+                <ng-container *ngFor="let genre of movie.genres">{{genre.label}}</ng-container>
+            </span>
         </div>
     </div>
 </div>
