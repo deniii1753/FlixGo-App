@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppInterceptorProvider } from 'src/app.interceptor';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { TrailerContainerComponent } from './movie-details/trailer-container/trailer-container.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     RegisterComponent,
     MoviesComponent,
     AddMovieComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    TrailerContainerComponent
   ],
   imports: [
     BrowserModule,

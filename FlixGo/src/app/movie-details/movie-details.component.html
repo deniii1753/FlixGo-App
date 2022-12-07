@@ -11,6 +11,10 @@
                         <div class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-5">
                             <div class="card__cover">
                                 <img [src]="movie?.imgUrl" alt="movie image">
+                                <button 
+                                class="watch-trailer-btn" 
+                                (click)="openTrailerHandler()
+                                ">Watch Trailer</button>
                             </div>
                         </div>
                         <div class="col-12 col-sm-8 col-md-8 col-lg-9 col-xl-7">
@@ -33,7 +37,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
+
+<app-trailer-container 
+*ngIf="isTrailerOpened" 
+[trailerLink]="movie?.trailer"
+(closeTrailerWindow)="isTrailerOpened = false"
+
+></app-trailer-container>

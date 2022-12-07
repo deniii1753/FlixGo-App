@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="overlay" (click)="closeHandler()"></div>
+    <div class="video-container">
+        <iframe
+            class="video-iframe"
+            title="movie-trailer"
+            [src]="trailerLink || '' | safe"
+            allow="autoplay"
+            allowFullScreen
+        >
+        </iframe>
+    </div>
+</div>
