@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FaqComponent } from './faq/faq.component';
 import { MoviesComponent } from '../movies/movies.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AddMovieComponent } from '../add-movie/add-movie.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'faq',
     component: FaqComponent
+  },
+  {
+    path: 'add-movie',
+    component: AddMovieComponent
   },
   {
     path: '**',

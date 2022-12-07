@@ -31,19 +31,19 @@ exports.getTotalCount = () => {
 }
 
 exports.getOne = (genreId) => {
-    return Genre.findOne({_id: genreId});
+    return Genre.findOne({ _id: genreId });
 }
 
 exports.editGenre = (genreId, updatedData) => {
-    return Genre.findByIdAndUpdate({_id: genreId}, updatedData, {runValidators: true, new: true});
+    return Genre.findByIdAndUpdate({ _id: genreId }, updatedData, { runValidators: true, new: true });
 }
 
 exports.addGenre = (data) => {
-    const newGenre = new Genre({value: data.value, label: data.label});
+    const newGenre = new Genre({ value: data.value, label: data.label });
 
     return newGenre.save();
 }
 
 exports.deleteGenre = (genreId) => {
-    return Genre.deleteOne({_id: genreId});
+    return Genre.deleteOne({ _id: genreId });
 }

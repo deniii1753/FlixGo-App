@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +16,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { MoviesComponent } from './movies/movies.component';
 import { SharedModule } from './shared/shared.module';
 import { AppInterceptorProvider } from 'src/app.interceptor';
-import { HttpClientModule } from '@angular/common/http';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    MoviesComponent
+    MoviesComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     ReactiveFormsModule,
     MatIconModule,
-    HttpClientModule 
+    HttpClientModule,
+    MatSelectModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AppInterceptorProvider

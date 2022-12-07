@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IMovie } from '../shared/interfaces/imovie';
+import { IMovie } from '../shared/interfaces/IMovie';
 import { MovieService } from '../shared/services/movie.service';
 
-const MOVIES_PER_REQUEST = 1;
+const MOVIES_PER_REQUEST = 2;
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',

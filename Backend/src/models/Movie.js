@@ -25,7 +25,7 @@ const movieSchema = new Schema({
     },
     releaseYear: {
         type: Number,
-        required: [true, 'ReleaseDate is required!'],
+        required: [true, 'releaseYear is required!'],
     },
     imgUrl: {
         type: String,

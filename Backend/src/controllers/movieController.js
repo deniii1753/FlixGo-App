@@ -71,6 +71,7 @@ router.get('/:movieId', async (req, res, next) => {
 router.post('/', isAuth, async (req, res, next) => {
     try {
         if (req.body.hasOwnProperty('_ratingStars')) throw { status: 400, message: 'You cannot modify _ratingStars property!' };
+
         if(req.body.postCreator !== req.verifiedUserId && req.verifiedUserRole !== 'admin') throw {status: 401, message: 'You are not authorized to set postCreator field!'};
 
         const movie = await movieService.addMovie(req.body);

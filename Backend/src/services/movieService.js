@@ -43,19 +43,13 @@ exports.addMovie = (movie) => {
 
     const newMovie = new Movie({
         title: movie.title,
-        writer: movie.writer,
-        director: movie.director,
         genres: movie.genres,
         time: movie.time,
-        releaseDate: movie.releaseDate,
-        language: movie.language,
+        releaseYear: movie.releaseYear,
         trailer: movie.trailer,
         imgUrl: movie.imgUrl,
-        author: movie.author,
-        authorImg: movie.authorImg,
         description: movie.description,
         postCreator: movie.postCreator,
-        _ratingStars: 0,
         _creationDate: new Date().getTime()
     });
 

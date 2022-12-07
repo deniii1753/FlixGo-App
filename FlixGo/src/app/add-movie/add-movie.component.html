@@ -1,0 +1,106 @@
+<form [formGroup]="form" class="add-movie_form" (ngSubmit)="submitHandler(form)">
+    <a class="logo" routerLink="/home">
+        <img src="../../../assets/logo.svg" alt="">
+    </a>
+
+    <div class="group">
+        <input type="text" class="input" placeholder="Title" formControlName="title">
+        <p class="error-message" *ngIf="form.get('title')?.touched && form.get('title')?.invalid">
+            <mat-icon>error</mat-icon>
+            <ng-container *ngIf="form.hasError('required','title')">Title is required!
+            </ng-container>
+            <ng-container *ngIf="form.hasError('minlength','title')">Title should be minimum 2
+                characters!</ng-container>
+            <ng-container *ngIf="form.hasError('maxlength','title')">Title should be maximum
+                20 characters!</ng-container>
+        </p>
+    </div>
+
+    <div class="group">
+        <mat-form-field appearance="fill">
+            <mat-label>Genres</mat-label>
+            <mat-select formControlName="genres" multiple>
+                <mat-select-trigger>
+                    {{form.get('genres')?.value?.[0] || ''}}
+                    <span *ngIf="(form.get('genres')?.value?.length || 0) > 1" class="example-additional-selection">
+                        (+{{(form.get('genres')?.value?.length || 0) - 1}} {{form.get('genres')?.value?.length === 2 ?
+                        'other' : 'others'}})
+                    </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let genre of genres" [value]="genre.value">{{genre.value}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <p class="error-message" *ngIf="form.get('genres')?.touched && form.get('genres')?.invalid">
+            <mat-icon>error</mat-icon>
+            <ng-container *ngIf="form.hasError('required','genres')">Please select at least 1 genre!
+            </ng-container>
+        </p>
+    </div>
+    <div class="group">
+        <input type="text" class="input" placeholder="Time" formControlName="time">
+        <p class="error-message" *ngIf="form.get('time')?.touched && form.get('time')?.invalid">
+            <mat-icon>error</mat-icon>
+            <ng-container *ngIf="form.hasError('required','time')">
+                Time field is required!
+            </ng-container>
+            <ng-container *ngIf="form.hasError('isNaN','time')">
+                Time should be a number!
+            </ng-container>
+        </p>
+    </div>
+
+    <div class="group">
+        <input type="text" class="input" placeholder="Year Released" formControlName="releaseYear">
+        <p class="error-message" *ngIf="form.get('releaseYear')?.touched && form.get('releaseYear')?.invalid">
+            <mat-icon>error</mat-icon>
+            <ng-container *ngIf="form.hasError('required','releaseYear')">
+                Released year field is required!
+            </ng-container>
+            <ng-container *ngIf="form.hasError('isNaN','releaseYear')">
+                Released year should be a number!
+            </ng-container>
+        </p>
+    </div>
+    <div class="group">
+        <input type="text" class="input" placeholder="Movie Image" formControlName="imgUrl">
+        <p class="error-message" *ngIf="form.get('imgUrl')?.touched && form.get('imgUrl')?.invalid">
+            <mat-icon>error</mat-icon>
+            <ng-container *ngIf="form.hasError('required','imgUrl')">
+                Movie image field is required!
+            </ng-container>
+            <ng-container *ngIf="form.hasError('notLink','imgUrl')">
+                Movie image should be a link!
+            </ng-container>
+        </p>
+    </div>
+    <div class="group">
+        <input type="text" class="input" placeholder="Trailer" formControlName="trailer">
+        <p class="error-message" *ngIf="form.get('trailer')?.touched && form.get('trailer')?.invalid">
+            <mat-icon>error</mat-icon>
+            <ng-container *ngIf="form.hasError('required','trailer')">
+                Trailer field is required!
+            </ng-container>
+            <ng-container *ngIf="form.hasError('notYTLink','trailer')">
+                Trailer should be a youtube link!
+            </ng-container>
+        </p>
+    </div>
+    <div class="group">
+        <textarea class="input" placeholder="Description" formControlName="description" cols="30"></textarea>
+        <p class="error-message" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
+            <mat-icon>error</mat-icon>
+            <ng-container *ngIf="form.hasError('required','description')">
+                Description field is required!
+            </ng-container>
+            <ng-container *ngIf="form.hasError('minlength','description')">
+                Minimum: 50 characters!
+            </ng-container>
+            <ng-container *ngIf="form.hasError('maxlength','description')">
+                Limit of 500 characters reached!
+            </ng-container>
+        </p>
+    </div>
+    <p class="error-message" *ngIf="fetchErrorMessage">{{fetchErrorMessage}}</p>
+    <button class="add__btn" [disabled]="form.invalid">Add Movie</button>
+</form>

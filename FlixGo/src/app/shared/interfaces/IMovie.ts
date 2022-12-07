@@ -1,4 +1,4 @@
-import { IGenre } from "./igenre"
+import { IGenre } from "./IGenre"
 
 export interface IMovie {
     _id: String,
