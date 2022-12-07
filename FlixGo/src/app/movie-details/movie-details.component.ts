@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMovie } from '../shared/interfaces/IMovie';
 import { MovieService } from '../shared/services/movie.service';
@@ -9,6 +9,8 @@ import { MovieService } from '../shared/services/movie.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
+
+
   public movie: IMovie | null = null;
   public isTrailerOpened: boolean = false;
 
