@@ -56,13 +56,8 @@ export class AddMovieComponent implements OnInit {
     
     this.movieService.postMovie(formData)
       .subscribe({
-        next: (data) => {
-          // TO DO:
-          // Navigate to movie details page
-        },
-        error: (err) => {
-          this.fetchErrorMessage = err.message;
-        }
+        next: (data) => this.router.navigate([`/movies/${data._id}`]),
+        error: (err) => this.fetchErrorMessage = err.message
       })
         
   }
