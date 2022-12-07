@@ -11,6 +11,7 @@ import { FaqComponent } from './faq/faq.component';
 import { MoviesComponent } from '../movies/movies.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AddMovieComponent } from '../add-movie/add-movie.component';
+import { CanActivateTeam } from './routeGuards.js/routeGuards';
 
 const routes: Routes = [
   {
@@ -36,7 +37,8 @@ const routes: Routes = [
   },
   {
     path: 'add-movie',
-    component: AddMovieComponent
+    component: AddMovieComponent,
+    canActivate: [CanActivateTeam]
   },
   {
     path: '**',

@@ -31,6 +31,9 @@ export class CanActivateTeam implements CanActivate {
 
             case '/logout': if (!isAuthenticated) redirectUser();
                 break;
+
+            case '/add-movie': if (!isAuthenticated) redirectUser();
+                break;
         }
 
         return true;
