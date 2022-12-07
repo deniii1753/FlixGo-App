@@ -17,6 +17,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { SharedModule } from './shared/shared.module';
 import { AppInterceptorProvider } from 'src/app.interceptor';
 import { AddMovieComponent } from './add-movie/add-movie.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
     LoginComponent,
     RegisterComponent,
     MoviesComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
     BrowserAnimationsModule
   ],
   providers: [
-    AppInterceptorProvider
+    AppInterceptorProvider,
   ],
   bootstrap: [AppComponent],
 })

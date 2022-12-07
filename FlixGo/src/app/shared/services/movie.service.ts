@@ -23,4 +23,8 @@ export class MovieService {
     });
     return this.http.post<IMovie>('/api/movies', data, {headers: headers})
   }
+
+  getMovie(movieId: string) {
+    return this.http.get<IMovie>(`/api/movies/${movieId}?genres=true`);
+  }
 }

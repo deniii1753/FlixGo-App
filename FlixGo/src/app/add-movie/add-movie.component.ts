@@ -26,9 +26,6 @@ export class AddMovieComponent implements OnInit {
     private movieService: MovieService,
     private authService: AuthService
   ) { }
-  // toppings = new FormControl('');
-
-  // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
   ngOnInit(): void {
     this.genreService.getGenres()
@@ -60,7 +57,8 @@ export class AddMovieComponent implements OnInit {
     this.movieService.postMovie(formData)
       .subscribe({
         next: (data) => {
-
+          // TO DO:
+          // Navigate to movie details page
         },
         error: (err) => {
           this.fetchErrorMessage = err.message;
