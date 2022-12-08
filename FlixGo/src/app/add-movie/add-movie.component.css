@@ -226,15 +226,12 @@
     }
 }
 
-::ng-deep .mat-form-field {
-    width: 280px;
-}
-
 ::ng-deep .mat-select-value {
     color: #fff;
 }
 
 ::ng-deep .mat-form-field {
+    width: 280px;
     /* background-color: #2b2b31; */
     background-color: #2b2b31;
     letter-spacing: 0.2px;

@@ -13,7 +13,7 @@ export class MovieService {
     private authService: AuthService
   ) { }
 
-  getMovies(limit?: number, skip?: number, sortField?: string, order?: string) {
+  getMovies(limit?: number, skip?: number, searchKey?: string, searchValue?: string, sortField?: string, order?: string) {
     let url = '/api/movies';
     if (limit || skip || sortField || order) url += '?';
 
@@ -21,6 +21,7 @@ export class MovieService {
     if (skip) url += `skip=${skip}&`;
     if (sortField) url += `sort=${sortField}&`;
     if (order) url += `order=${order}&`;
+    if (searchKey) url+= `${searchKey}=${searchValue}&`;
 
     if (url.endsWith('&')) url = url.slice(0, url.length - 1);
 
