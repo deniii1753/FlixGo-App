@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" #scrollTarget>
     <div class="overlay" (click)="closeHandler()"></div>
     <div class="video-container">
         <iframe
@@ -7,7 +7,6 @@
             [src]="trailerLink || '' | safe"
             allow="autoplay"
             allowFullScreen
-            #scrollTarget
         >
         </iframe>
     </div>

@@ -12,8 +12,6 @@ export class TrailerContainerComponent implements AfterViewChecked, OnDestroy {
   @ViewChild("scrollTarget") scrollTarget!: ElementRef;
 
   ngAfterViewChecked(): void {
-    console.log(this.scrollTarget);
-
     disableBodyScroll(this.scrollTarget?.nativeElement);
   }
 
