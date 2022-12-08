@@ -22,7 +22,7 @@
 
                                 <ul class="card__meta">
                                     <li><span>Genres:</span>
-                                        <a href="#" *ngFor="let genre of movie?.genres">{{genre.value}}</a>
+                                        <a routerLink="/movies" [queryParams]="{genre: genre.value}" *ngFor="let genre of movie?.genres">{{genre.value}}</a>
                                     </li>
                                     <li><span>Release year:</span> {{movie?.releaseYear}}</li>
                                     <li><span>Running time:</span> {{movie?.time}} min</li>

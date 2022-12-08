@@ -6,7 +6,7 @@
         <div class="card__content">
             <h3 class="card__title"><a routerLink="/movies/{{movie._id}}">{{movie.title}}</a></h3>
             <span class="card__category">
-                <a href="#" *ngFor="let genre of movie.genres">{{genre.value}}</a>
+                <a routerLink="/movies" [queryParams]="{genre: genre.value}" *ngFor="let genre of movie.genres">{{genre.value}}</a>
             </span>
         </div>
     </div>
