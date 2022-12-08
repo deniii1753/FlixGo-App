@@ -49,6 +49,8 @@ export class MoviesComponent implements OnInit {
         const selectedGenre = x['genre'] || null;
         this.selectedGenre = selectedGenre;
 
+       this.form.setValue({genre: selectedGenre});
+        
         if(this.genres?.length) return of({count: null, genres: []});
         return this.genreService.getGenres();
       }),
@@ -63,18 +65,9 @@ export class MoviesComponent implements OnInit {
       next: (movies) => this.movies = movies,
       error: () => this.router.navigate(['404'])
     })
-
-    // this.route.queryParams.subscribe((x: Params) => {
-    //   const selectedGenre = x['genre'];
-    //   this.selectedGenre = selectedGenre;
-
-    //   if(!selectedGenre) return;
-
-    // })
   }
 
   moreClickHandler() {
-    // check if selected genre is defined and if it is make request for movies with specific genres.
     const genre = this.genres.find(x => x.value === this.selectedGenre) || null;
     if (genre) {
       this.movieService.getMovies(MOVIES_PER_REQUEST, this.movies?.movies.length, 'genres', genre?._id)
