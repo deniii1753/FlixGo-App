@@ -3,24 +3,20 @@
         <div class="row">
             <div class="col-12 col-sm-4">
                 <div class="card__cover">
-                    <img src="../assets/cover.jpg" alt="card-background">
+                    <img [src]="movie?.imgUrl" alt="card-background">
                 </div>
             </div>
 
             <div class="col-12 col-sm-8">
                 <div class="card__content">
-                    <h3 class="card__title"><a href="#">I Dream in Another Language</a></h3>
-                    <span class="card__category">Action, Triler</span>
-                    <p class="added-time">Added: 30 seconds ago</p>
+                    <h3 class="card__title"><a routerLink="/movies/{{movie?._id}}">{{movie?.title}}</a></h3>
+                    <span class="card__category">
+                        <a href="#" *ngFor="let genre of movie?.genres">{{genre.value}}</a>
+                    </span>
+                    <p class="added-time">Added: {{movie?._creationDate | calcTime}}</p>
 
                     <div class="card__description">
-                        <p>
-                            It is a long established fact that a reader will be distracted by the
-                            readable content of a page when looking at its layout. The point of
-                            using Lorem Ipsum is that it has a more-or-less normal distribution of
-                            letters, as opposed to using 'Content here, content here', making it
-                            look like readable English.
-                        </p>
+                        <p>{{movie?.description}}</p>
                     </div>
                 </div>
             </div>
