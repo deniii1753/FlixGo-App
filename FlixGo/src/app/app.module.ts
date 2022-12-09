@@ -19,6 +19,7 @@ import { AppInterceptorProvider } from 'src/app.interceptor';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TrailerContainerComponent } from './movie-details/trailer-container/trailer-container.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TrailerContainerComponent } from './movie-details/trailer-container/tra
     MoviesComponent,
     AddMovieComponent,
     MovieDetailsComponent,
-    TrailerContainerComponent
+    TrailerContainerComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

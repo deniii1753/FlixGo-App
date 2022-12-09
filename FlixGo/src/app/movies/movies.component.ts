@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { mergeMap, of, zip } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { mergeMap, of } from 'rxjs';
 
 import { IGenre } from '../shared/interfaces/IGenre';
 import { IMovie } from '../shared/interfaces/IMovie';
 import { GenreService } from '../shared/services/genre.service';
 import { MovieService } from '../shared/services/movie.service';
 
-const MOVIES_PER_REQUEST = 2;
+import { MOVIES_PER_REQUEST } from '../shared/constants';
+
+// const MOVIES_PER_REQUEST = 2;
 
 @Component({
   selector: 'app-movies',
@@ -34,31 +36,21 @@ export class MoviesComponent implements OnInit {
       genre: [this.route.snapshot.queryParams['genre'] || '']
     });
 
-    // const package$ = zip(this.movieService.getMovies(), this.genreService.getGenres())
-
-    // package$.subscribe({
-    //   next: ([movies, genres]) => {
-    //     this.movies = movies;
-    //     this.genres = genres.genres;
-    //   },
-    //   error: () => this.router.navigate(['404'])
-    // });
-
     this.route.queryParams.pipe(
       mergeMap(x => {
         const selectedGenre = x['genre'] || null;
         this.selectedGenre = selectedGenre;
 
-       this.form.setValue({genre: selectedGenre});
-        
-        if(this.genres?.length) return of({count: null, genres: []});
+        this.form.setValue({ genre: selectedGenre });
+
+        if (this.genres?.length) return of({ count: null, genres: [] });
         return this.genreService.getGenres();
       }),
       mergeMap(genres => {
-        if(!this.genres?.length) this.genres = genres.genres;
-        const genre = this.genres.find((x: IGenre) => x.value === this.selectedGenre) as IGenre | undefined; 
-        
-        if(!genre) return this.movieService.getMovies(MOVIES_PER_REQUEST, 0);
+        if (!this.genres?.length) this.genres = genres.genres;
+        const genre = this.genres.find((x: IGenre) => x.value === this.selectedGenre) as IGenre | undefined;
+
+        if (!genre) return this.movieService.getMovies(MOVIES_PER_REQUEST, 0);
         return this.movieService.getMovies(MOVIES_PER_REQUEST, 0, 'genres', genre?._id);
       })
     ).subscribe({
@@ -71,14 +63,14 @@ export class MoviesComponent implements OnInit {
     const genre = this.genres.find(x => x.value === this.selectedGenre) || null;
     if (genre) {
       this.movieService.getMovies(MOVIES_PER_REQUEST, this.movies?.movies.length, 'genres', genre?._id)
-      .subscribe({
-        next: (data) => {
-          this.movies = { count: data.count, movies: (this.movies?.movies.concat(data.movies) as IMovie[]) };
-        },
-        error: () => {
-          this.router.navigate(['404']);
-        }
-      })
+        .subscribe({
+          next: (data) => {
+            this.movies = { count: data.count, movies: (this.movies?.movies.concat(data.movies) as IMovie[]) };
+          },
+          error: () => {
+            this.router.navigate(['404']);
+          }
+        })
     } else {
       this.movieService.getMovies(MOVIES_PER_REQUEST, this.movies?.movies.length)
         .subscribe({
@@ -103,7 +95,7 @@ export class MoviesComponent implements OnInit {
   }
 
   filterClearHandler() {
-    this.form.setValue({genre: ''});
+    this.form.setValue({ genre: '' });
     this.router.navigate(['/movies']);
   }
 

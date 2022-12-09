@@ -14,7 +14,6 @@ router.get('/:userId', isAuth, async (req, res, next) => {
         }
 
         const user = await userService.getUser(req.params.userId);
-
         res.status(200).json(user);
     } catch (err) {
         next(err);

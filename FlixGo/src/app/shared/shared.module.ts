@@ -7,13 +7,15 @@ import { MoviesCardItemComponent } from './movies-card-item/movies-card-item.com
 
 import { CalcTimePipe } from './pipes/calc-passed-time.pipe';
 import { SafePipe } from './pipes/safe.pipe';
+import { ConvertTimePipe } from './pipes/convertTime.pipe';
 
 @NgModule({
   declarations: [
     HomeCardItemComponent,
     MoviesCardItemComponent,
     CalcTimePipe,
-    SafePipe
+    SafePipe,
+    ConvertTimePipe
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { SafePipe } from './pipes/safe.pipe';
     HomeCardItemComponent,
     MoviesCardItemComponent,
     CalcTimePipe,
-    SafePipe
+    SafePipe,
+    ConvertTimePipe
   ]
 })
 export class SharedModule { }

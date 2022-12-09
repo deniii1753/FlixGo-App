@@ -7,6 +7,7 @@ import { LogoutComponent } from './core/logout/logout.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { CanActivateTeam } from './core/routeGuards.js/routeGuards';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'movies/:id',
     component: MovieDetailsComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [CanActivateTeam]
   }
 ];
 

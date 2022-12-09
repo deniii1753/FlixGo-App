@@ -20,7 +20,8 @@ const userSchema = new Schema({
     createdMovies: [{
         type: Schema.Types.ObjectId,
         ref: 'movie'
-    }]
+    }],
+    _creationDate: Number
 });
 
 const User = model('user', userSchema);

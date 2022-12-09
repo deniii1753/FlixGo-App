@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
     const order = req.query?.order;
     const genres = req.query?.genres;
     const title = req.query?.title;
-    const movieCreatorId = req.query?.movieCreatorId;
+    const postCreator = req.query?.postCreator;
 
     const sortCriteria = {};
     if (sort && order) sortCriteria[sort] = order;
@@ -27,9 +27,9 @@ router.get('/', async (req, res, next) => {
     } else if (title) {
         search.key = 'title';
         search.value = title;
-    } else if (movieCreatorId) {
+    } else if (postCreator) {
         search.key = 'postCreator';
-        search.value = movieCreatorId;
+        search.value = postCreator;
     }
 
     try {
