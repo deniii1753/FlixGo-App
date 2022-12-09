@@ -84,17 +84,13 @@
     }
 }
 
-::ng-deep .mat-form-field {
-    width: 200px;
-}
-
 ::ng-deep .mat-select-value {
     color: #fff;
 }
 
 ::ng-deep .mat-form-field {
-    background-color: #5a5a5a;
-    border-radius: 5px;
+    width: 280px;
+    background-color: #2b2b31;
     letter-spacing: 0.2px;
     margin-left: 5px;
     font-family: 'Open Sans', sans-serif;
@@ -112,8 +108,4 @@
 ::ng-deep .mat-form-field-label {
     color: rgba(255, 255, 255, 0.5);
     height: 20px;
-}
-
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-    color: #98a6fa;
 }

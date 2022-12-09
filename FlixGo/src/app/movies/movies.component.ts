@@ -10,12 +10,10 @@ import { MovieService } from '../shared/services/movie.service';
 
 import { MOVIES_PER_REQUEST } from '../shared/constants';
 
-// const MOVIES_PER_REQUEST = 2;
-
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  styleUrls: ['./movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
   public movies: { count: Number, movies: IMovie[] } | undefined;
