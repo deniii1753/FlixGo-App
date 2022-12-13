@@ -40,7 +40,7 @@
                 <h2 class="section__title">Created Movies</h2>
             </div>
 
-            <app-movies-card-item *ngFor="let movie of movies.movies" [movie]="movie"></app-movies-card-item>
+            <app-movies-card-item *ngFor="let movie of movies?.movies" [movie]="movie"></app-movies-card-item>
 
             <div class="col-12">
                 <ng-container *ngIf="movies?.count !== movies?.movies?.length">
