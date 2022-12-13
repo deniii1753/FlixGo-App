@@ -2,7 +2,7 @@
     <div class="card card--list">
         <div class="row">
             <div class="col-12 col-sm-4">
-                <div class="card__cover">
+                <div class="card__cover" routerLink="/movies/{{movie?._id}}">
                     <img [src]="movie?.imgUrl" alt="card-background">
                 </div>
             </div>
