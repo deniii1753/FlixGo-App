@@ -12,9 +12,14 @@
                             <div class="card__cover">
                                 <img [src]="movie?.imgUrl" alt="movie image">
                                 <button 
-                                class="watch-trailer-btn" 
+                                class="btn" 
                                 (click)="openTrailerHandler()
                                 ">Watch Trailer</button>
+
+                                <div class="owner-btns-container" *ngIf="isOwner">
+                                    <button class="btn" routerLink="/movies/{{movie?._id}}/edit">Edit</button>
+                                    <button class="btn">Delete</button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 col-sm-8 col-md-8 col-lg-9 col-xl-7">

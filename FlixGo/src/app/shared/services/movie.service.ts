@@ -21,7 +21,7 @@ export class MovieService {
     if (skip) url += `skip=${skip}&`;
     if (sortField) url += `sort=${sortField}&`;
     if (order) url += `order=${order}&`;
-    if (searchKey) url+= `${searchKey}=${searchValue}&`;
+    if (searchKey) url += `${searchKey}=${searchValue}&`;
 
     if (url.endsWith('&')) url = url.slice(0, url.length - 1);
 
@@ -32,10 +32,18 @@ export class MovieService {
     const headers = new HttpHeaders({
       'X-Auth-Token': this.authService.user?.['X-Auth-Token'] || ''
     });
-    return this.http.post<IMovie>('/api/movies', data, { headers: headers })
+    return this.http.post<IMovie>('/api/movies', data, { headers })
   }
 
   getMovie(movieId: string) {
     return this.http.get<IMovie>(`/api/movies/${movieId}?genres=true`);
+  }
+
+  editMovie(movieId: string, data: IMovie) {
+    const headers = new HttpHeaders({
+      'X-Auth-Token': this.authService.user?.['X-Auth-Token'] || ''
+    });
+
+    return this.http.put<IMovie>(`/api/movies/${movieId}`, data, { headers })
   }
 }

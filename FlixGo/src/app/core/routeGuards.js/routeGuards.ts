@@ -34,6 +34,9 @@ export class CanActivateTeam implements CanActivate {
 
             case '/add-movie': if (!isAuthenticated) redirectUser();
                 break;
+            case `/movies/${route.params['id']}/edit`: if (!isAuthenticated) redirectUser();
+                break;
+
         }
 
         return true;

@@ -20,6 +20,7 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TrailerContainerComponent } from './movie-details/trailer-container/trailer-container.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     AddMovieComponent,
     MovieDetailsComponent,
     TrailerContainerComponent,
-    ProfileComponent
+    ProfileComponent,
+    MovieEditComponent
   ],
   imports: [
     BrowserModule,

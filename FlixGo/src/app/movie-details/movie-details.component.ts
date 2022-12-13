@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IMovie } from '../shared/interfaces/IMovie';
+import { AuthService } from '../shared/services/auth.service';
 import { MovieService } from '../shared/services/movie.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { MovieService } from '../shared/services/movie.service';
 })
 export class MovieDetailsComponent implements OnInit {
 
-
+  public isOwner: boolean = false;
   public movie: IMovie | null = null;
   public isTrailerOpened: boolean = false;
 
   constructor(
     private movieService: MovieService,
+    public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -27,7 +29,8 @@ export class MovieDetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           data.trailer = this.getParsedYoutubeLink(data.trailer);
-          this.movie = data;          
+          this.movie = data;        
+          this.isOwner = this.authService.user?._id === data.postCreator;          
         },
         error: () => this.router.navigate(['404'])
       })

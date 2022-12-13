@@ -44,7 +44,7 @@
     max-width: 270px;
 }
 
-.watch-trailer-btn {
+.btn {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -63,8 +63,12 @@
     color: #fff;
 }
 
-.watch-trailer-btn:hover {
+.btn:hover {
     opacity: 1;
+}
+
+.owner-btns-container {
+    display: flex;
 }
 
 
