@@ -21,6 +21,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TrailerContainerComponent } from './movie-details/trailer-container/trailer-container.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { DeleteModalComponent } from './movie-details/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MovieEditComponent } from './movie-edit/movie-edit.component';
     MovieDetailsComponent,
     TrailerContainerComponent,
     ProfileComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,

@@ -11,14 +11,12 @@
                         <div class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-5">
                             <div class="card__cover">
                                 <img [src]="movie?.imgUrl" alt="movie image">
-                                <button 
-                                class="btn" 
-                                (click)="openTrailerHandler()
+                                <button class="btn" (click)="openTrailerHandler()
                                 ">Watch Trailer</button>
 
-                                <div class="owner-btns-container" *ngIf="isOwner">
+                                <div class="owner-btns-container">
                                     <button class="btn" routerLink="/movies/{{movie?._id}}/edit">Edit</button>
-                                    <button class="btn">Delete</button>
+                                    <button class="btn" (click)="deleteModalHandler()">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +25,8 @@
 
                                 <ul class="card__meta">
                                     <li><span>Genres:</span>
-                                        <a routerLink="/movies" [queryParams]="{genre: genre.value}" *ngFor="let genre of movie?.genres">{{genre.value}}</a>
+                                        <a routerLink="/movies" [queryParams]="{genre: genre.value}"
+                                            *ngFor="let genre of movie?.genres">{{genre.value}}</a>
                                     </li>
                                     <li><span>Release year:</span> {{movie?.releaseYear}}</li>
                                     <li><span>Running time:</span> {{movie?.time}} min</li>
@@ -46,9 +45,7 @@
     </div>
 </section>
 
-<app-trailer-container 
-*ngIf="isTrailerOpened" 
-[trailerLink]="movie?.trailer"
-(closeTrailerWindow)="isTrailerOpened = false"
+<app-trailer-container *ngIf="isTrailerOpened" [trailerLink]="movie?.trailer"
+    (closeTrailerWindow)="isTrailerOpened = false"></app-trailer-container>
 
-></app-trailer-container>
+<app-delete-modal *ngIf="isDeleteOpened" [movie]="movie" (closeModal)="isDeleteOpened = false"></app-delete-modal>
