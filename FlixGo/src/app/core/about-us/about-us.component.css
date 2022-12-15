@@ -1,0 +1,33 @@
+.feature {
+    color: #fff;
+}
+
+.section__text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 25px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.2px;
+  }
+  
+  .section__text:last-child {
+    margin-bottom: 0;
+  }
+  
+  .section__text--last-with-margin:last-child {
+    margin-bottom: 30px;
+  }
+  
+  .section__text b {
+    font-weight: 600;
+  }
+  
+  .section__text a {
+    color: #ff55a5;
+  }
+  
+  .section__text a:hover {
+    color: #ff55a5;
+    text-decoration: underline;
+  }

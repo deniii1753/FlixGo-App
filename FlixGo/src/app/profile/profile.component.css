@@ -35,9 +35,14 @@
     letter-spacing: 1px;
     margin: 10px auto 15px;
     position: relative;
-  }
-  
-  .show-more-btn:hover {
+}
+
+.show-more-btn:hover {
     opacity: 1;
     color: #fff;
-  }
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 50px;
+}

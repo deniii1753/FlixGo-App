@@ -1,1 +1,1 @@
-export const MOVIES_PER_REQUEST = 2
+export const MOVIES_PER_REQUEST = 8
