@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.movieService.getMovies(4, 0, '_creationDate', 'desc')
+    this.movieService.getMovies(4, 0, undefined, undefined, '_creationDate', 'desc')
       .subscribe({
         next: (data) => this.movies = data.movies,
         error: () => this.router.navigate(['404'])
