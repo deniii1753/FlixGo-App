@@ -32,18 +32,19 @@ export class RegisterComponent implements OnInit {
   }
 
   submitHandler(form: FormGroup) {
-    if(form.invalid) return;
-    const {username, email, passwords} = form.value;
-    
+    if (form.invalid) return;
+    const { username, email, passwords } = form.value;
+
     this.authService.register({
-      username, 
-      email, 
+      username,
+      email,
       password: passwords.password
     })
       .subscribe({
         next: (user) => {
-            this.authService.user = user as IUser;
-            this.router.navigate(['/home']);
+          this.authService.user = user as IUser;
+          localStorage.setItem('user', JSON.stringify(user));
+          this.router.navigate(['/home']);
         },
         error: (err) => {
           this.fetchErrorMessage = err.message;

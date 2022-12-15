@@ -13,6 +13,9 @@ export class HeaderComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    const user = localStorage.getItem('user');
+
+    if(user) this.authService.user = JSON.parse(user);
   }
 
 }

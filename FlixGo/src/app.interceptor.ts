@@ -12,14 +12,16 @@ export class AppInterceptor implements HttpInterceptor {
         
         if (req.url.startsWith('/api')) {
             request = req.clone({
-                url: req.url.replace('/api', 'http://localhost:3030/api'),
+                url: req.url.replace('/api', 'https://flexgo-backend.onrender.com/api/'),
+                // url: req.url.replace('/api', 'http://localhost:3030/api'),
+                
             });
         }
 
         return next.handle(request).pipe(
             catchError((err) => throwError(() => {
                 return err.error;
-            })))
+            })));
     }
 }
 

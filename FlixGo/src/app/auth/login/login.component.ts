@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (user) => {
           this.authService.user = user as IUser;
+          localStorage.setItem('user', JSON.stringify(user));
           this.router.navigate(['/home']);
         },
         error: (err) => {

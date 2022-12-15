@@ -14,7 +14,7 @@
                                 <button class="btn" (click)="openTrailerHandler()
                                 ">Watch Trailer</button>
 
-                                <div class="owner-btns-container">
+                                <div class="owner-btns-container" *ngIf="isOwner">
                                     <button class="btn" routerLink="/movies/{{movie?._id}}/edit">Edit</button>
                                     <button class="btn" (click)="deleteModalHandler()">Delete</button>
                                 </div>
