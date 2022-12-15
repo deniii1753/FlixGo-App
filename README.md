@@ -19,7 +19,7 @@
 
 ## Information about the application:
 
-FlixGo is an application about movies, you can create, edit, delete movies. You can filter the movies by their genre in the movies page and find the movies you are interested in, you an also watch the movie trailer and see more information about the movie when you click on the movie image or title.
+FlixGo is an application about movies, you can create, edit and delete movies. You can filter the movies by their genre in the movies page and find the movies you are interested in, you can also watch the movie trailer and see more information about the movie when you click on the movie image or title.
 
 
 ## TO DO: 
