@@ -46,4 +46,12 @@ export class MovieService {
 
     return this.http.put<IMovie>(`/api/movies/${movieId}`, data, { headers })
   }
+
+  deleteMovie(movieId: string) {
+    const headers = new HttpHeaders({
+      'X-Auth-Token': this.authService.user?.['X-Auth-Token'] || ''
+    });
+
+    return this.http.delete(`/api/movies/${movieId}`, { headers });
+  }
 }

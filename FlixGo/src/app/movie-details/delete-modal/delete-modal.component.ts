@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IMovie } from 'src/app/shared/interfaces/IMovie';
+import { MovieService } from 'src/app/shared/services/movie.service';
 
 @Component({
   selector: 'app-delete-modal',
@@ -10,15 +12,26 @@ export class DeleteModalComponent {
   @Input() movie: IMovie | null = null;
   @Output() closeModal = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(
+    private movieService: MovieService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     
   }
 
   deleteHandler() {
-    console.log('DELETE');
-    
+    this.movieService.deleteMovie(this.movie?._id || '')
+      .subscribe({
+        next: () => {
+          this.closeModal.emit();
+          this.router.navigate(['/movies']);
+        },
+        error: () => {
+          this.router.navigate(['404']);
+        }
+      })
   }
 
   closeHandler(e: MouseEvent) {
